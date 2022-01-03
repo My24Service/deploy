@@ -16,7 +16,7 @@ STATICFILES_DIRS = (
 )
 
 ALLOWED_HOSTS = []
-INSTALLED_APPS = ['app']
+INSTALLED_APPS = ['app', 'django.contrib.staticfiles']
 MIDDLEWARE = []
 ROOT_URLCONF = 'deploy.urls'
 TEMPLATES = []
