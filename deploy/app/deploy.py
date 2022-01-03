@@ -63,7 +63,7 @@ class DeployBase:
         return release_name
 
     def get_release_name(self):
-        with open('release') as f:
+        with open(self.release_filename) as f:
             lines = f.readlines()
             return lines[0].strip()
 
