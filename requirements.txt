@@ -1,2 +1,4 @@
 Django
 boto3==1.17.109
+django-js-reverse
+django-tenants==3.3.2

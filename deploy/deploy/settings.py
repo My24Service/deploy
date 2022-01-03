@@ -3,6 +3,18 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x@7=l%*rn%!8t19uoa12_8fdkq5n@qjs#37yfkpfaa_2%y3$qp'
 DEBUG = False
+STATIC_ROOT = PROJECT_DIR('static')
+STATIC_URL = '/static/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'my24frontend', 'dist'),
+)
+
 ALLOWED_HOSTS = []
 INSTALLED_APPS = ['app']
 MIDDLEWARE = []
