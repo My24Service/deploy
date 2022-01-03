@@ -1,5 +1,2 @@
 Django
 boto3==1.17.109
-django-js-reverse
-django-tenants
-django_compressor
