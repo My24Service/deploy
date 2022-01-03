@@ -72,12 +72,5 @@ class DeployBase:
         if self.deploy_type == DeployType.FRONTEND:
             shell_script = 'deploy_front.sh'
 
-        paths = ['/var/lib/jenkins/deploy/deploy', '/var/lib/jenkins/deploy/deploy/app']
-        paths += os.environ.get('PYTHONPATH', '').split(os.pathsep)
-
-        env = dict(os.environ)
-        env['PYTHONPATH'] = os.pathsep.join(paths)
-
-        proc = subprocess.Popen(['./{0}'.format(shell_script), self.tgz_filename, release_name], stdout=subprocess.PIPE, env=env)
+        proc = subprocess.Popen(['./{0}'.format(shell_script), self.tgz_filename, release_name], stdout=subprocess.PIPE)
         proc.wait()
-        #os.system('./{0} {1} {2}'.format(shell_script, self.tgz_filename, release_name))
