@@ -47,14 +47,14 @@ python manage.py collectstatic --noinput --clear
 # collectstatic_js_reverse
 python manage.py collectstatic_js_reverse
 
-# copy media
-#cp -r ${MY24_BASEDIR}/live/release/source/media .
-
-# create symlink
+# create symlink for media
 rm -rf media
 ln -s /mnt/my24-media/media media
 
-# set symlink
+# copy symlink to frontend
+cp -P "${MY24_BASEDIR}/live/release/source/my24frontend" .
+
+# set symlink to release
 rm "${MY24_BASEDIR}/live/release" && ln -s "${DEPLOY_DIR}" "${MY24_BASEDIR}/live/release"
 
 # restart supervisor
