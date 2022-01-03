@@ -1,6 +1,8 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = lambda base: os.path.abspath(os.path.join(os.path.dirname(__file__), '../', base).replace('\\', '/'))
 SECRET_KEY = 'django-insecure-x@7=l%*rn%!8t19uoa12_8fdkq5n@qjs#37yfkpfaa_2%y3$qp'
 DEBUG = False
 STATIC_ROOT = PROJECT_DIR('static')
