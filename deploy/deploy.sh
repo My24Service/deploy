@@ -21,10 +21,10 @@ cd $DEPLOY_DIR
 virtualenv --python=python3 venv
 
 # activate virtualenv
-source venv/bin/activate
+# source venv/bin/activate
 
 # Install requirements
-pip install -r requirements.txt
+./venv/bin/pip install -r requirements.txt
 
 cd source
 
@@ -39,13 +39,13 @@ ln -s ${MY24_BASEDIR}/conf/__init__.py settings/__init__.py
 ln -s ${MY24_BASEDIR}/conf/live_settings.py settings/live_settings.py
 
 # migrate models
-python manage.py migrate_schemas --noinput
+../venv/bin/python manage.py migrate_schemas --noinput
 
 # collect static
-python manage.py collectstatic --noinput --clear
+../venv/bin/python manage.py collectstatic --noinput --clear
 
 # collectstatic_js_reverse
-python manage.py collectstatic_js_reverse
+../venv/bin/python manage.py collectstatic_js_reverse
 
 # create symlink for media
 rm -rf media
