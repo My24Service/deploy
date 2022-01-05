@@ -11,4 +11,4 @@ source venv/bin/activate
 
 cd source
 
-python manage.py collectstatic --noinput --clear
+python manage.py collectstatic --noinput
