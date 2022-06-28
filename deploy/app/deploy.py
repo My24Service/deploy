@@ -18,6 +18,7 @@ class BuildType(Enum):
 class DeployType(Enum):
     BACKEND = 1
     FRONTEND = 2
+    RUST_BACKEND = 1
 
 
 class DeployBase:
@@ -68,9 +69,14 @@ class DeployBase:
             return lines[0].strip()
 
     def do_deploy(self, release_name):
-        shell_script = 'deploy.sh'
         if self.deploy_type == DeployType.FRONTEND:
             shell_script = 'deploy_front.sh'
+
+        elif self.deploy_type == DeployType.RUST_BACKEND:
+            shell_script = 'deploy_rust.sh'
+
+        else:
+            raise ValueError('Unable to determine deploy type')
 
         proc = subprocess.Popen(['./{0}'.format(shell_script), self.tgz_filename, release_name], stdout=subprocess.PIPE)
         proc.wait()
