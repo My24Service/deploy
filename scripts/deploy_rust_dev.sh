@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd deploy/deploy
-../venv/bin/python manage.py deploy_rust_dev
+rm -f $HOME/.aws/credentials
+ln -s $HOME/.aws/credentials-linode $HOME/.aws/credentials
 
-sudo supervisorctl restart all
+cd /var/www/my24service/docker/
+
+./update.sh
+
