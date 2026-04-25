@@ -72,9 +72,6 @@ class DeployBase:
         if self.deploy_type == DeployType.FRONTEND:
             shell_script = 'deploy_front.sh'
 
-        elif self.deploy_type == DeployType.RUST_BACKEND:
-            shell_script = 'deploy_rust.sh'
-
         else:
             raise ValueError('Unable to determine deploy type')
 
