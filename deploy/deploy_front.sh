@@ -12,8 +12,9 @@ tar zxf $FILENAME
 #rm $FILENAME
 
 DEPLOY_DIR="${MY24_BASEDIR}/live/${RELEASE_NAME}"
+SYMLINK_NAME="frontend-release"
 
 echo "DEPLOY_DIR: $DEPLOY_DIR"
 
 # set symlink
-rm -fr "${MY24_BASEDIR}/live/release/source/my24frontend" && ln -s "${DEPLOY_DIR}" "${MY24_BASEDIR}/live/release/source/my24frontend"
+rm -fr "${MY24_BASEDIR}/live/$SYMLINK_NAME" && ln -s "${DEPLOY_DIR}" "${MY24_BASEDIR}/live/$SYMLINK_NAME"
